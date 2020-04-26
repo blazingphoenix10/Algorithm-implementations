@@ -1,0 +1,109 @@
+BT3041 Practical Assignment - BE15B007
+
+Answers to questions:
+
+Question 1:
+
+Number of clusters in Outlier dataset : 4
+Number of clusters in Fullmoon dataset : 2
+
+Outlier dataset has noise points along the y=0 straight line.
+Fullmoon dataset also has a few noise points along the y=0 straight line. 
+
+All clusters in Outlier dataset are circular. 
+One cluster in Fullmoon dataset is circular like the fullmoon,
+while the other cluster is like the not common space between semi-circles of varying radius. 
+
+Prediction:
+For clusters that represent a cluster K-Means clustering algorithm will not work fine. 
+For the same clusters DBSCAN is expected to perform well. 
+
+Question 2:
+
+The implementation of K-Means clustering algorithm is in the file named kmeans.py
+Number of clusters and name of dataset is given as input in the terminal.
+
+Question 3:
+
+The implementation of DBSCAN clustering algorithm is in the file named dbscan.py
+The name of dataset, number of minimum points and epsilon threshold is given as input in the terminal.
+
+Question 4:
+
+(a) Dataset: fullmoon Number of clusters: 2
+    The final centroids are :  [(6.033001265008878, -6.421382097868564), (-7.651206386036964, -5.793883942505131)] 
+    The number of points in cluster  1 is :  563 
+    The number of points in cluster  2 is :  487   
+    The sum of squared error between the points and their respective centroids is :  52241.49386460261  
+Image of cluster formation has been attached: kmeans_fullmoon_2
+The inability of kmeans to distinguish circular shapes is clearly seen with one half of the graph belonging to one cluster and the other half to the other cluster.
+
+    Dataset: fullmoon Number of clusters: 3
+    The final centroids are :  [(7.718661888557211, -9.01335154228856), (-9.223187738419618, -7.61742473569482), (-0.1692170000000001, -0.06369182597864777)]
+    The number of points in cluster  1 is :  402
+    The number of points in cluster  2 is :  367
+    The number of points in cluster  3 is :  281
+    The sum of squared error between the points and their respective centroids is :  31672.468724553815                                                                           
+Image of cluster formation has been attached: kmeans_fullmoon_3
+The fullmoon part of the cluster forms a single cluster, the shell part of the data points seprates into two halves like before with one half belonging to one cluster. 
+
+(b) Dataset: outlier Number of clusters: 2
+    The final centroids are :  [(20.121989580838314, 2.493889664670659), (-19.63480542405063, -1.9847512911392409)]                                                              
+    The number of points in cluster  1 is :  334
+    The number of points in cluster  2 is :  316
+    The sum of squared error between the points and their respective centroids is :  137469.1333186258                                                                           
+Image of cluster formation has been attached: kmeans_outlier_2
+The big clusters are clearly separated, but there is a problem with the separation of some points in the small cluster which is wrongly clustered, points with x<0,y=0 belong to one cluster, points with x>0,y=0 beling to another cluster.
+
+    Dataset: outlier Number of clusters: 4
+    The final centroids are :  [(20.45921921568627, 10.178218470588234), (17.138888240000007, -11.974896133333335), (-22.29076923076924, 8.20609572027972), (-19.874431045751628, -8.155660758169933)]                                            The number of points in cluster  1 is :  204
+    The number of points in cluster  2 is :  150
+    The number of points in cluster  3 is :  143
+    The number of points in cluster  4 is :  153
+    The sum of squared error between the points and their respective centroids is :  74463.34633110547                                                                           
+Image of cluster formation has been attached: kmeans_outlier_4
+Totally chaotic clustering. Not one of the four clusters are separated correctly.
+
+Question 5:
+
+(a) Datset: fullmoon , eps=1.3, MinPts=7
+    The number of core points are: 1037
+    The number of noise points are: 0
+    The number of border points are: 13
+Image of cluster formation has been attached: dbcsan_fullmoon_7_1.3
+No distinction, almost all points are labelled as core points. 
+
+    Datset: fullmoon , eps=0.9 MinPts=7
+    The number of core points are: 890
+    The number of noise points are: 26
+    The number of border points are: 134
+Image of cluster formation has been attached: dbcsan_fullmoon_7_0.9
+Noise points are clearly defined, the two necessary clusters are also defined well, but the noise points along y=0 straight line form a separate cluster of it's own.
+
+    Datset: fullmoon , eps=1.3, MinPts=15
+    The number of core points are: 844
+    The number of noise points are: 34
+    The number of border points are: 172
+Image of cluster formation has been attached: dbcsan_fullmoon_15_1.3
+Proper clustering takes place with noise points, core points and boundary points clearly defined. 
+
+(b) Datset: outlier , eps=3.2, MinPts=8
+    The number of core points are: 590
+    The number of noise points are: 45
+    The number of border points are: 15
+Image of cluster formation has been attached: dbcsan_outlier_8_3.2
+Perfect clustering, the two small clusters form separate clusters, distinction of noise points and the two big clusters is also clear. 
+
+    Datset: outlier , eps=2.5, MinPts=8
+    The number of core points are: 447
+    The number of noise points are: 66
+    The number of border points are: 137
+Image of cluster formation has been attached: dbcsan_outlier_8_2.5
+The two small clusters form separate clusters, distinction of noise points is also done well but a part of the two big clusters forms a separate cluster.  
+
+    Datset: outlier , eps=3.2, MinPts=15
+    The number of core points are: 321
+    The number of noise points are: 84
+    The number of border points are: 245
+Image of cluster formation has been attached: dbcsan_outlier_15_3.2
+The two small clusters are distinguished well, multiple clusters are formed withing the big clusters which is improper, definiton of noise points is acceptable.
